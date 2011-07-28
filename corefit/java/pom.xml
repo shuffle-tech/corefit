@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.corefit</groupId>
+	<artifactId>corefit-java</artifactId>
+	<packaging>war</packaging>
+	
+	<parent>
+		<artifactId>shuffle-tech-parent-java</artifactId>
+		<groupId>com.shuffle</groupId>
+		<version>0.0.1-beta</version>
+	</parent>
+	
+	<name>Corefit JAVA Web Application</name>
+	
+	<dependencies>
+		<dependency>
+			<groupId>${shuffle.groupId}</groupId>
+			<artifactId>shuffle-tech-security</artifactId>
+			<version>${pom.parent.version}</version>
+			<type>jar</type>
+		</dependency>
+        <dependency>
+			<groupId>${shuffle.groupId}</groupId>
+			<artifactId>shuffle-tech-resources</artifactId>
+			<version>${pom.parent.version}</version>
+			<type>war</type>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<finalName>corefit</finalName>
+		<resources>
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+	</build>
+	
+</project>
