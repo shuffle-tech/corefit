@@ -22,6 +22,12 @@
 			<version>${pom.parent.version}</version>
 			<type>jar</type>
 		</dependency>
+		<dependency>
+			<groupId>${shuffle.groupId}</groupId>
+			<artifactId>shuffle-tech-generic-dao</artifactId>
+			<version>${pom.parent.version}</version>
+			<type>jar</type>
+		</dependency>
         <dependency>
 			<groupId>${shuffle.groupId}</groupId>
 			<artifactId>shuffle-tech-resources</artifactId>
