@@ -1,8 +1,5 @@
-package com.corefit.model.entity;
+package com.corefit.model.entity.business;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,41 +8,38 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import com.shuffle.generic.core.dao.GenericDTOBase;
 
 @Entity
-@Table(name = "Weekday", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID"  }) })
-public class Weekday extends GenericDTOBase {
+@Table(name = "CONTACT", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID"  }) })
+public class Contact extends GenericDTOBase {
 
     /**
      * Serialization
      */
-    private static final long serialVersionUID = -448097026108013766L;
+    private static final long serialVersionUID = 5394892999467140283L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_WEEKDAY")
+    @Column(name = "ID" )
     private Long ID;
+
+    @Column(name = "IDI_TYPE")
+    private int type;
 
     @Column(name = "DS_DESCRIPTION")
     private String description;
 
-    @OneToMany(mappedBy = "weekDay", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Hour.class)
-    @OrderBy("ID")
-    private Set<Hour> hours;
+    @ManyToOne(optional = false, fetch = FetchType.LAZY, targetEntity = Student.class)
+    @JoinColumn(name = "ID_STUDENT", insertable = true, updatable = true)
+    private Student student;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY, targetEntity = User.class)
     @JoinColumn(name = "ID_USER", insertable = true, updatable = true)
     private User user;
-
-    @ManyToOne(optional = false, fetch = FetchType.LAZY, targetEntity = Lesson.class)
-    @JoinColumn(name = "ID_LESSON", insertable = true, updatable = true)
-    private Lesson lesson;
 
     /*************************************************************************/
 
@@ -59,6 +53,14 @@ public class Weekday extends GenericDTOBase {
         ID = iD;
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -67,12 +69,12 @@ public class Weekday extends GenericDTOBase {
         this.description = description;
     }
 
-    public Set<Hour> getHours() {
-        return hours;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setHours(Set<Hour> hours) {
-        this.hours = hours;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     public User getUser() {
@@ -81,14 +83,6 @@ public class Weekday extends GenericDTOBase {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Lesson getLesson() {
-        return lesson;
-    }
-
-    public void setLesson(Lesson lesson) {
-        this.lesson = lesson;
     }
 
 }

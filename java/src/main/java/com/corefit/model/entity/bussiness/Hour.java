@@ -1,4 +1,4 @@
-package com.corefit.model.entity;
+package com.corefit.model.entity.business;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ import javax.persistence.UniqueConstraint;
 import com.shuffle.generic.core.dao.GenericDTOBase;
 
 @Entity
-@Table(name = "Hour", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID"  }) })
+@Table(name = "HOUR", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID"  }) })
 public class Hour extends GenericDTOBase {
 
     /**

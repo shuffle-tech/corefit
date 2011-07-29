@@ -1,4 +1,4 @@
-package com.corefit.model.entity;
+package com.corefit.model.entity.business;
 
 import java.util.Date;
 import java.util.Set;
@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
 import com.shuffle.generic.core.dao.GenericDTOBase;
 
 @Entity
-@Table(name = "Lesson", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID"  }) })
+@Table(name = "LESSON", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID"  }) })
 public class Lesson extends GenericDTOBase {
 
     /**

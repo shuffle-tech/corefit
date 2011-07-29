@@ -1,4 +1,4 @@
-package com.corefit.model.entity;
+package com.corefit.model.entity.business;
 
 import java.util.Date;
 import java.util.Set;
@@ -15,10 +15,12 @@ import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.corefit.model.entity.security.Role;
+
 import com.shuffle.generic.core.dao.GenericDTOBase;
 
 @Entity
-@Table(name = "User", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID"  }) })
+@Table(name = "USER", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID"  }) })
 public class User extends GenericDTOBase {
 
     /**
@@ -58,6 +60,9 @@ public class User extends GenericDTOBase {
     @OrderBy("ID")
     private Set<Weekday> weekDays;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Role.class)
+    @OrderBy("ID")
+    private Set<Role> userRoles;
     /*************************************************************************/
 
     @Override
@@ -134,4 +139,11 @@ public class User extends GenericDTOBase {
         this.weekDays = weekDays;
     }
 
+    public Set<Role> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(Set<Role> userRoles) {
+        this.userRoles = userRoles;
+    }
 }
