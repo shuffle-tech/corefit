@@ -1,4 +1,4 @@
-package com.corefit.model.entity;
+package com.corefit.model.entity.security;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
