@@ -16,13 +16,13 @@ import com.corefit.model.entity.business.User;
 import com.shuffle.generic.core.dao.GenericDTOBase;
 
 @Entity
-@Table(name = "USER_ROLE", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID"  }) })
+@Table(name = "USER_ROLE", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID_ROLE"  }) })
 public class Role extends GenericDTOBase {
 
     /**
      * Serialization
      */
-    private static final long serialVersionUID = -2934455521503134223L;
+    private static final long serialVersionUID = 591439547738557156L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

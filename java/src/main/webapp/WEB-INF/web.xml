@@ -5,6 +5,11 @@
 	
 	<display-name>Corefit Pilates</display-name>
 	
+	<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
+	</context-param>
+	
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -16,53 +21,31 @@
 		<url-pattern>*.jsf</url-pattern>
 	</servlet-mapping>
 	
-	<context-param>
-		<param-name>javax.faces.PROJECT_STAGE</param-name>
-		<param-value>Development</param-value>
-	</context-param>
-	
-	<context-param>
-		<param-name>primefaces.skin</param-name>
-		<param-value>none</param-value>
-	</context-param>
-	
-	<context-param>  
-        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>  
-        <param-value>.xhtml</param-value>  
-    </context-param> 
-	
-	<!-- More efficient, in an AJAX environment, to have server side state saving -->
-     <context-param>
-         <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-         <param-value>server</param-value>
-     </context-param>
- 
-     <!-- HTML comments become components unless they're stripped -->
-     <context-param>
-         <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
-         <param-value>true</param-value>
-     </context-param>
-	
 	<session-config>
-		<session-timeout>30</session-timeout>	
+		<session-timeout>30</session-timeout>
 	</session-config>
-		
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
-	
+
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>none</param-value>
+	</context-param>
+
 	<!-- Início das configurações para o Spring Security 3 -->
-    <filter>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-    </filter>
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-    <filter-mapping>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    <!-- Fim das configuração para utilizar o Spring Security 3 -->	
-	
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- Fim das configuração para utilizar o Spring Security 3 -->
+
 </web-app>

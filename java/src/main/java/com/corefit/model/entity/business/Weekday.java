@@ -19,7 +19,7 @@ import javax.persistence.UniqueConstraint;
 import com.shuffle.generic.core.dao.GenericDTOBase;
 
 @Entity
-@Table(name = "WEEKDAY", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID"  }) })
+@Table(name = "WEEKDAY", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID_WEEKDAY" }) })
 public class Weekday extends GenericDTOBase {
 
     /**

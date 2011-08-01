@@ -16,7 +16,7 @@ import javax.persistence.UniqueConstraint;
 import com.shuffle.generic.core.dao.GenericDTOBase;
 
 @Entity
-@Table(name = "PAYMENT", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID"  }) })
+@Table(name = "PAYMENT", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID_PAYMENT" }) })
 public class Payment extends GenericDTOBase {
 
     /**
@@ -26,7 +26,7 @@ public class Payment extends GenericDTOBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID" )
+    @Column(name = "ID_PAYMENT" )
     private Long ID;
 
     @Column(name = "DT_PAY")

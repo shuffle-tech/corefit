@@ -20,7 +20,7 @@ import com.corefit.model.entity.security.Role;
 import com.shuffle.generic.core.dao.GenericDTOBase;
 
 @Entity
-@Table(name = "USER", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID"  }) })
+@Table(name = "USER", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = { "ID_USER"  }) })
 public class User extends GenericDTOBase {
 
     /**
@@ -30,7 +30,7 @@ public class User extends GenericDTOBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID" )
+    @Column(name = "ID_USER" )
     private Long ID;
 
     @Column(name = "DS_NAME")

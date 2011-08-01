@@ -7,15 +7,17 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>Corefit Pilates</title>
-        <link type="text/css" rel="stylesheet" href="style/humanity/skin.css"/>
+        <!--link type="text/css" rel="stylesheet" href="style/humanity/skin.css"/-->
+        <link type="text/css" rel="stylesheet" href="dot-luv/skin.css"/>
     </h:head>
     
-    <h:body style="background-position: 50% 0%;background-repeat: no-repeat;">
+    <!--h:body style="background-position: 50% 0%;background-repeat: no-repeat;"-->
+    <h:body style="background-image:url('http://pwes.rocklin.k12.ca.us/j0439526.jpg');background-position: 50% 0%;background-repeat: no-repeat">
         
         <p:dialog header="Corefit - Login" visible="true" closable="false" draggable="false" resizable="false" width="420">
             
             <center>
-                <h:outputText value="Usuário ou senha incorretos!" rendered="#{param.erro}" style="color: darkorange"/>
+                <h:outputText value="Usuário ou senha incorretos!" rendered="#{param.erro}" style="color: darkred"/>
             </center>
             
             <form action="j_spring_security_check" method="post">
